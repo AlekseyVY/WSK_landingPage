@@ -530,11 +530,11 @@
 				<!-- contact form -->
 				<div class="col-md-8 col-md-offset-2">
 					<form class="contact-form">
-						<input type="text" class="input" placeholder="Фамилия Имя Отчество">
-						<input type="email" class="input" placeholder="Email">
-						<input type="text" class="input" placeholder="Тема">
-						<textarea class="input" placeholder="Сообщение"></textarea>
-						<button class="main-btn">Отправить</button>
+						<input type="text" class="input" name="phone" placeholder="Телефон" required="required">
+						<input type="email" class="input" name="email" placeholder="Email" required="required">
+						<input type="text" class="input" name="name" placeholder="Фамилия Имя Отчество" required="required">
+						<textarea class="input" name="message" placeholder="Сообщение"></textarea>
+						<button class="main-btn" type="submit" name="submitButton" value="Отправить">Отправить</button>
 					</form>
 				</div>
 				<!-- /contact form -->
@@ -564,7 +564,6 @@
 					<ul class="footer-follow">
 						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
 						<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 						<li><a href="#"><i class="fa fa-youtube"></i></a></li>
@@ -609,6 +608,22 @@
 	<script type="text/javascript" src="js/owl.carousel.min.js"></script>
 	<script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+	<!-- PHP -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#form").submit(function() { //устанавливаем событие отправки для формы с id=form
+					var form_data = $(this).serialize(); //собераем все данные из формы
+					$.ajax({
+					type: "POST", //Метод отправки
+					url: "send.php", //путь до php фаила отправителя
+					data: form_data,
+					success: function() {
+						   //код в этом блоке выполняется при успешной отправке сообщения
+						   alert("Ваше сообщение отпрвлено!");
+					});
+			});
+		});    
+		</script>
 
 </body>
 
