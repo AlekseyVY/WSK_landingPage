@@ -1658,7 +1658,7 @@ header {
 }
 
 #back-to-top:after {
-    content: "\f106";
+    content: "вверх";
     font-family: 'FontAwesome';
 }
 
@@ -1750,4 +1750,13 @@ header {
     -webkit-transform:scale(0);
             transform:scale(0);
   }
+}
+
+
+.contact-form {
+    margin-top: 0px;
+}
+
+.modal-body {
+    padding-bottom: 0px;
 }

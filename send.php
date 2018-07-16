@@ -21,10 +21,6 @@ $msg .= "<p><strong>Сайт:</strong> ".$usertel."</p>\r\n";
 $msg .= "</body></html>";
  
 // отправка сообщения
-if(@mail($sendto, $subject, $msg, $headers)) {
-    echo "<center><img src='images/spasibo.png'></center>";
-} else {
-    echo "<center><img src='images/ne-tpravleno.png'></center>";
-}
+@mail($sendto, $subject, $msg, $headers)
  
 ?>
